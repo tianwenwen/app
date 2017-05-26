@@ -16,13 +16,32 @@
   </div>
 </template>
 
-<script>
+<script> //type="text/ecmascript-6"
   import Header from './components/header/header.vue'
 
   export default {
 //  name: 'app',
     components: {
       vHeader: Header
+    },
+    data:function(){
+      return{
+        seller:{
+
+        }
+      }
+    },//定义成函数，因为定义成对象的话，组件是会附中的，其中一个修改会影响其他组件
+    created:function(){
+      this.$http.get('/api/seller').then(function(response){
+        //成功后
+        response = response.json();
+        if(response.errno == 0){
+
+        }
+      },function(){
+        //失败后
+
+      });
     }
   }
 </script>
@@ -43,7 +62,15 @@
       line-height: 40px;
         .tab-item {
           flex: auto;
-          text-align: center;;
+          text-align: center;
+          &>a{
+            display: block;
+            font-size:14px;
+            color:rgb(77,85,93);
+            &.active{
+              color:rgb(240,20,20);
+             }
+            }
         }
     }
 
