@@ -18,7 +18,7 @@
 
 <script> //type="text/ecmascript-6"
   import Header from './components/header/header.vue'
-
+  var ERR_OK = 0;
   export default {
 //  name: 'app',
     components: {
@@ -30,16 +30,16 @@
 
         }
       }
-    },//定义成函数，因为定义成对象的话，组件是会附中的，其中一个修改会影响其他组件
-    created:function(){
+    },//定义成函数，因为定义成对象的话，组件是会复用的，其中一个修改会影响其他组件
+    created:function(){//实例已经创建完成之后被调用
       this.$http.get('/api/seller').then(function(response){
-        //成功后
-        response = response.json();
-        if(response.errno == 0){
-
+        //成功回调
+        response = response.body;
+        if(response.errno == ERR_OK){
+           this.seller = response.data; //this  vue实例
         }
       },function(){
-        //失败后
+        //失败回调
 
       });
     }

@@ -73,7 +73,33 @@ var uri = 'http://localhost:' + port
 var _resolve
 var readyPromise = new Promise(resolve => {
   _resolve = resolve
-})
+});
+
+var appData = require('../data.json');
+
+var seller = appData.seller;
+var goods = appData.goods;
+var ratings = appData.ratings;
+var apiRoutes = express.Router()
+apiRoutes.get('/goods',function(req,res){
+  res.json({
+    errno:0,
+    data:goods
+  })
+});
+apiRoutes.get('/ratings',function(req,res){
+  res.json({
+    errno:0,
+    data:ratings
+  })
+});
+apiRoutes.get('/seller',function(req,res){
+  res.json({
+    errno:0,
+    data:seller
+  })
+});
+app.use('/api',apiRoutes);
 
 console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {

@@ -1,0 +1,35 @@
+{
+  "seller": {
+    "name": "粥品香坊",
+    "description": "更鸟转送",
+    "score": "4.2",
+    "serviceScore": "4.1",
+    "foodScore": "4.3",
+    "rankRate": "69.2",
+    "minPrice": "4",
+    "deliveryPrice": "4",
+    "ratingCount": "24",
+    "sellCount": "90",
+    "bulletin": "中国千年古法",
+    "supports": [
+      {
+        "type": 0,
+        "description": "在线支付慢20减19"
+      },
+      {
+        "type": 1,
+        "description": "单人精彩套餐"
+      },
+      {
+        "type": 2,
+        "description": "橙汁全场8折"
+      },
+      {
+        "type": 3,
+        "description": "已加入”外卖保“计划，食品安全保障"
+      }
+    ]
+  },
+  "goods": {},
+  "ratings": {}
+}
