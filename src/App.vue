@@ -2,17 +2,26 @@
   <div class="app">
     <v-header></v-header>
     <div class="tab">
+
+      <span>{{totalPrice}}</span>
       <div class="tab-item">
-        <router-link to="/goods">商品</router-link>
+        <!--<router-link to="/goods" tag="li">商品</router-link>-->
+        <router-link :to="{name:'goods'}" tag="li">商品</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/ratings">评论</router-link>
+        <router-link :to="{path:'/ratings'}">评论</router-link>
       </div>
       <div class="tab-item">
-        <router-link to="/seller">商家</router-link>
+        <router-link :to="{name:'seller', params:{color: 123 }}">商家</router-link>
       </div>
     </div>
-    <router-view></router-view>
+    <transition mode="out-in" name="fade">
+      <keep-alive>
+        <router-view name="viewA"></router-view>
+        <router-view name="viewB"></router-view>
+      </keep-alive>
+    </transition>
+
   </div>
 </template>
 
@@ -42,6 +51,12 @@
         //失败回调
 
       });
+    },
+    computed:{
+      totalPrice:function(){
+//        return this.$store.state.totalPrice
+        return this.$store.getters.getTotal
+      }
     }
   }
 </script>
@@ -75,6 +90,11 @@
     }
 
   }
-
+  .fade-enter-active,.fade-leave-active{
+    transition:all .5s;
+  }
+  .fade-enter,.fade-leave-active{ //默认为1
+  opacity:0;
+  }
 
 </style>
