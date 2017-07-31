@@ -2,6 +2,7 @@
     <div>
        I am goods
       {{$route.params.color}}
+      {{$store.getters.getTotal}}
        <button @click="getParam">getParam</button>
        <button @click="add">add</button>
        <button @click="minus">subtract</button>

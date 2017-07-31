@@ -6,10 +6,10 @@
       <span>{{totalPrice}}</span>
       <div class="tab-item">
         <!--<router-link to="/goods" tag="li">商品</router-link>-->
-        <router-link :to="{name:'goods'}" tag="li">商品</router-link>
+        <router-link :to="{name:'goods'}">商品</router-link>
       </div>
       <div class="tab-item">
-        <router-link :to="{path:'/ratings'}">评论</router-link>
+        <router-link :to="{path:'/ratings', query:{plan:'test'}}">评论</router-link>
       </div>
       <div class="tab-item">
         <router-link :to="{name:'seller', params:{color: 123 }}">商家</router-link>
@@ -78,7 +78,7 @@
         .tab-item {
           flex: auto;
           text-align: center;
-          &>a{
+          a{
             display: block;
             font-size:14px;
             color:rgb(77,85,93);
